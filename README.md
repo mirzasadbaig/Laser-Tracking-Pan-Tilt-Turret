@@ -288,21 +288,24 @@ Contours are extracted from the processed mask.
 
 The largest qualifying contour is selected as the detected laser spot.
 
+
+
+
 ### Step 6 — Centroid Calculation
 
-Image moments are used to estimate the laser position:
+Image moments are used to estimate the centre of each detected laser spot.
 
-\[
-x_c=\frac{M_{10}}{M_{00}}
-\]
+```math
+x_c = \frac{M_{10}}{M_{00}}
+```
 
-\[
-y_c=\frac{M_{01}}{M_{00}}
-\]
+```math
+y_c = \frac{M_{01}}{M_{00}}
+```
 
 The resulting coordinates represent the detected spot centre in camera pixel space.
 
----
+
 
 ## Camera-to-Servo Calibration
 
