@@ -34,6 +34,22 @@ This project demonstrates the integration of:
 
 ---
 
+
+## Project Gallery
+
+### Complete Hardware Setup
+
+![Laser Tracking Turret Hardware](images/complete-setup.jpg)
+
+ESP32-based dual-axis pan-tilt system using a PCA9685 PWM driver and two SG90 servos.
+
+### Computer Vision Tracking
+
+![OpenCV Laser Tracking](images/tracking-demo.png)
+
+OpenCV detects the green target and red laser spot for positioning and tracking-error evaluation.
+
+
 ## Project Demonstration
 
 The system is designed to track a movable green laser spot by adjusting the orientation of a servo-mounted red laser.
