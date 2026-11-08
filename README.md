@@ -50,13 +50,23 @@ ESP32-based dual-axis pan-tilt system using a PCA9685 PWM driver and two SG90 se
 OpenCV detects the green target and red laser spot for positioning and tracking-error evaluation.
 
 
-## Project Demonstration
 
-The system is designed to track a movable green laser spot by adjusting the orientation of a servo-mounted red laser.
+## 🎥 Project Demonstration
 
-**Demo Video:** [Watch the Laser-Tracking Turret](https://youtu.be/7mieknODzqU)
+Watch the Laser-Tracking Pan-Tilt Turret in action.
 
-Replace the placeholder with your actual demonstration video link.
+[![Watch Laser-Tracking Turret Demo](https://img.youtube.com/vi/7mieknODzqU/hqdefault.jpg)](https://youtu.be/7mieknODzqU)
+
+**[▶ Watch Full Demonstration on YouTube](https://youtu.be/7mieknODzqU)**
+
+### Demonstrated Functionality
+
+- Green laser target detection using OpenCV
+- Camera-based target localization
+- Automatic pan and tilt servo movement
+- ESP32 and PCA9685-based servo control
+- Red laser positioning toward the green target
+
 
 ### Demonstration Objectives
 
