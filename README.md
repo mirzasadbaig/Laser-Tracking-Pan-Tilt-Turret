@@ -54,7 +54,7 @@ OpenCV detects the green target and red laser spot for positioning and tracking-
 
 The system is designed to track a movable green laser spot by adjusting the orientation of a servo-mounted red laser.
 
-**Demo Video:** [Watch the Laser-Tracking Turret](PASTE_VIDEO_LINK_HERE)
+**Demo Video:** [Watch the Laser-Tracking Turret](https://youtu.be/7mieknODzqU)
 
 Replace the placeholder with your actual demonstration video link.
 
