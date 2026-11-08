@@ -333,41 +333,41 @@ Because camera positioning and mechanical geometry affect the mapping, calibrati
 | Space | Record calibration sample |
 | Q | Finish calibration |
 
+
 ### Mathematical Model
 
-The calibration uses an affine mapping:
+The calibration uses an affine transformation.
 
-\[
-\theta_{\mathrm{pan}}=a_1x+a_2y+a_3
-\]
+**Pan angle:**
 
-\[
-\theta_{\mathrm{tilt}}=b_1x+b_2y+b_3
-\]
+```math
+\theta_{\mathrm{pan}} = a_1x + a_2y + a_3
+```
 
-Where:
+**Tilt angle:**
 
-- \(x,y\): detected pixel coordinates
-- \(\theta_{\mathrm{pan}}\): pan servo angle
-- \(\theta_{\mathrm{tilt}}\): tilt servo angle
-- \(a_i,b_i\): fitted calibration coefficients
+```math
+\theta_{\mathrm{tilt}} = b_1x + b_2y + b_3
+```
 
-In matrix form:
+**Matrix representation:**
 
-\[
+```math
 \begin{bmatrix}
-\theta_{\mathrm{pan}}\\
+\theta_{\mathrm{pan}} \\
 \theta_{\mathrm{tilt}}
 \end{bmatrix}
 =
 \begin{bmatrix}
-a_1&a_2&a_3\\
-b_1&b_2&b_3
+a_1 & a_2 & a_3 \\
+b_1 & b_2 & b_3
 \end{bmatrix}
 \begin{bmatrix}
-x\\y\\1
+x \\
+y \\
+1
 \end{bmatrix}
-\]
+```
 
 The coefficients are estimated using NumPy's least-squares solver.
 
@@ -395,7 +395,7 @@ Once calibration is complete, the application can begin automatic tracking.
 ### Angle Smoothing
 
 To reduce jitter, an exponential smoothing operation is applied to the commanded angles.
-
+```math
 \[
 \theta_{\mathrm{smooth},k}
 =
@@ -409,7 +409,7 @@ The implementation uses:
 \[
 \alpha=0.35
 \]
-
+```
 This reduces rapid command fluctuations caused by small variations in detected pixel coordinates.
 
 The smoothing implementation is a fixed-coefficient exponential filter, rather than a full adaptive One Euro Filter.
