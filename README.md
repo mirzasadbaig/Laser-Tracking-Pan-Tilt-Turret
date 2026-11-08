@@ -395,20 +395,21 @@ Once calibration is complete, the application can begin automatic tracking.
 ### Angle Smoothing
 
 To reduce jitter, an exponential smoothing operation is applied to the commanded angles.
+
+To reduce jitter, an exponential smoothing operation is applied to the commanded angles.
+
 ```math
-\[
 \theta_{\mathrm{smooth},k}
 =
 \alpha\theta_{\mathrm{target},k}
 +
 (1-\alpha)\theta_{\mathrm{smooth},k-1}
-\]
+```
 
 The implementation uses:
 
-\[
-\alpha=0.35
-\]
+```math
+\alpha = 0.35
 ```
 This reduces rapid command fluctuations caused by small variations in detected pixel coordinates.
 
@@ -426,27 +427,32 @@ The red laser is detected to quantify the difference between its observed positi
 
 The application includes a quantitative tracking-error measurement system.
 
+
 ### Error Calculation
 
 Tracking error is measured as the Euclidean distance between the red and green laser centroids:
 
-\[
-e=\sqrt{(x_g-x_r)^2+(y_g-y_r)^2}
-\]
+```math
+e_{\mathrm{px}} = \sqrt{(x_g-x_r)^2 + (y_g-y_r)^2}
+```
 
 Where:
 
-- \((x_g,y_g)\): green target centroid
-- \((x_r,y_r)\): red laser centroid
-- \(e\): tracking error in pixels
+- `x_g, y_g`: Green target centroid coordinates
+- `x_r, y_r`: Red laser centroid coordinates
+- `e_px`: Tracking error in pixels
 
 An optional measured scale factor can convert this distance into millimetres:
 
-\[
-e_{\mathrm{mm}}=e_{\mathrm{px}}\times s
-\]
+```math
+e_{\mathrm{mm}} = e_{\mathrm{px}} \times s
+```
 
-where \(s\) is the calibrated millimetres-per-pixel scale at the target plane.
+Where:
+
+- `s`: Calibrated millimetres-per-pixel scale at the target plane
+- `e_mm`: Tracking error in millimetres
+
 
 ### Accuracy Metrics
 
